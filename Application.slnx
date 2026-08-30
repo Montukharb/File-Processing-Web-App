@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
   <Project Path="FileProcessing.WebSolution.Client/" Type="Website" DisplayName="FileProcessing.WebSolution.Client">
     <BuildType Project="Debug" />
     <Properties Name="WebsiteProperties">
