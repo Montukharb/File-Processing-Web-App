@@ -1,0 +1,6 @@
+@FileProcessing.WebSolution.Server_HostAddress = http://localhost:5009
+
+GET {{FileProcessing.WebSolution.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
