@@ -24,5 +24,3 @@ app.UseHttpsRedirection();
 app.MapFallbackToFile("/index.html");
 Console.WriteLine("Server started");
 app.Run();
-
-
