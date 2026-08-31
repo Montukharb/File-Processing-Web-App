@@ -1,12 +1,9 @@
-﻿using FileProcessing.Infrastructure.Persistence;
+﻿
+using FileProcessing.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Text;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
+//using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FileProcessing.Infrastructure.DatabaseMigration
 {

@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Modules\UserManagement\UserManagement.PL\UserManagement.PL.csproj" />
+    <ProjectReference Include="..\..\Persistence\FileProcessing.Infrastructure.Persistence\FileProcessing.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\FileProcessing.Infrastructure.Persistence\FileProcessing.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\UserManagement.PL\UserManagement.PL.csproj" />
   </ItemGroup>
