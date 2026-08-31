@@ -1,14 +1,14 @@
 //// SpaProxy loading ko programmatically stop karne ke liye top par add karein
 //Environment.SetEnvironmentVariable("ASPNETCORE_HOSTINGSTARTUPASSEMBLIES", string.Empty);
 
-// ... baaki aapka regular Program.cs code
+//regular Program.cs code
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp",
-        policy => policy.WithOrigins("http://localhost:4200") // Replace with your Angular URL
+        policy => policy.WithOrigins("http://localhost:4200") // Replace with your Angular app URL
                         .AllowAnyHeader()
                         .AllowAnyMethod());
 });
