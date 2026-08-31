@@ -1,6 +1,32 @@
 <Solution>
+  <Folder Name="/Core/" />
+  <Folder Name="/Core/CommonLibrary/">
+    <Project Path="FileProcessing.Core.CommonLibrary/FileProcessing.Core.CommonLibrary.csproj" Id="9c175fa5-1458-4edd-a74f-136d6c1445bf" />
+  </Folder>
+  <Folder Name="/Core/DomainLibrary/">
+    <Project Path="FileProcessing.Core.DomainLibrary/FileProcessing.Core.DomainLibrary.csproj" Id="024074a7-0ba4-4335-94ca-0eeb7d52aff1" />
+  </Folder>
+  <Folder Name="/Infrastructure/" />
+  <Folder Name="/Infrastructure/Caching/">
+    <Project Path="FileProcessing.Infrastructure.Cache/FileProcessing.Infrastructure.Cache.csproj" Id="7817a78f-3ee6-4257-bdfb-077410645499" />
+  </Folder>
+  <Folder Name="/Infrastructure/DatabaseMigration/">
+    <Project Path="FileProcessing.Infrastructure.DatabaseMigration/FileProcessing.Infrastructure.DatabaseMigration.csproj" Id="1c431203-8f6a-412f-8816-f94d6563fd77" />
+  </Folder>
+  <Folder Name="/Infrastructure/Persistence/">
+    <Project Path="FileProcessing.Infrastructure.Persistence/FileProcessing.Infrastructure.Persistence.csproj" Id="5d6b82d3-838c-4a4e-8b56-21d2cba6d102" />
+  </Folder>
+  <Folder Name="/Modules/" />
+  <Folder Name="/Modules/DocumentConversion/" />
+  <Folder Name="/Modules/FileManagement/" />
+  <Folder Name="/Modules/ImageProcessing/" />
+  <Folder Name="/Modules/OCR/" />
+  <Folder Name="/Modules/PDF/" />
+  <Folder Name="/Modules/UserManagement/" />
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
   </Folder>
-  <Project Path="FileProcessing.WebSolution/FileProcessing.WebSolution.Server/FileProcessing.WebSolution.Server.csproj" />
+  <Folder Name="/WebSolution/">
+    <Project Path="FileProcessing.WebSolution/FileProcessing.WebSolution.Server/FileProcessing.WebSolution.Server.csproj" />
+  </Folder>
 </Solution>
