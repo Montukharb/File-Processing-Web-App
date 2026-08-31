@@ -22,7 +22,13 @@
   <Folder Name="/Modules/ImageProcessing/" />
   <Folder Name="/Modules/OCR/" />
   <Folder Name="/Modules/PDF/" />
-  <Folder Name="/Modules/UserManagement/" />
+  <Folder Name="/Modules/UserManagement/">
+    <Project Path="UserManagement.AM/UserManagement.AM.csproj" Id="5770d6af-032e-4c6a-baea-5123cc283fa4" />
+    <Project Path="UserManagement.DM/UserManagement.DM.csproj" Id="6634bd6b-dccd-48d0-a9a4-fd377f69ea93" />
+    <Project Path="UserManagement.PL/UserManagement.PL.csproj" Id="ac8b14d1-83db-4e2f-a12b-e404c757ca86" />
+    <Project Path="UserManagement.SL/UserManagement.SL.csproj" Id="fe70d9fb-a737-4f40-bbb5-dde4912d5a4c" />
+    <Project Path="UserManagement.Web/UserManagement.Web.csproj" Id="bb216294-7146-4634-9705-c2a7047cf6ca" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
   </Folder>
@@ -30,6 +36,7 @@
     <Project Path="FileProcessing.Tests.Unit/FileProcessing.Tests.Unit.csproj" />
   </Folder>
   <Folder Name="/WebSolution/">
+    <Project Path="FileProcessing.WebSolution.ModuleComposition/FileProcessing.WebSolution.ModuleComposition.csproj" Id="ec66a0ae-8ef5-4705-a84c-ad6ab260776e" />
     <Project Path="FileProcessing.WebSolution/FileProcessing.WebSolution.Server/FileProcessing.WebSolution.Server.csproj" />
   </Folder>
 </Solution>
