@@ -1,4 +1,4 @@
-﻿namespace FileProcessing.Tests.Unit
+﻿namespace FileProcessing.Tests.Unit.core
 {
     public class UnitTest1
     {
