@@ -26,6 +26,9 @@
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
   </Folder>
+  <Folder Name="/Test/">
+    <Project Path="FileProcessing.Tests.Unit/FileProcessing.Tests.Unit.csproj" />
+  </Folder>
   <Folder Name="/WebSolution/">
     <Project Path="FileProcessing.WebSolution/FileProcessing.WebSolution.Server/FileProcessing.WebSolution.Server.csproj" />
   </Folder>
