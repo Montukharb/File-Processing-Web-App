@@ -29,4 +29,5 @@
   <Folder Name="/WebSolution/">
     <Project Path="FileProcessing.WebSolution/FileProcessing.WebSolution.Server/FileProcessing.WebSolution.Server.csproj" />
   </Folder>
+  <Project Path="FileProcessing.Tests.Unit/FileProcessing.Tests.Unit.csproj" />
 </Solution>
