@@ -1,4 +1,3 @@
-using Azure;
 using FileProcessing.Infrastructure.DatabaseMigration;
 using FileProcessing.Infrastructure.Persistence;
 using FileProcessing.Infrastructure.Persistence.Seeding;
@@ -72,7 +71,7 @@ internal sealed class Operation
     internal static async Task CreateMigration(MigrationCommandLine options)
     {
         var process = new ProcessStartInfo("dotnet")
-        {
+        {   
             UseShellExecute = false,
             RedirectStandardOutput = true,
             RedirectStandardError = true,

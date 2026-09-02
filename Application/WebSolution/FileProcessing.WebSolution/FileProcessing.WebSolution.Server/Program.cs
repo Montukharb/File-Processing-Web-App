@@ -2,6 +2,7 @@
 //Environment.SetEnvironmentVariable("ASPNETCORE_HOSTINGSTARTUPASSEMBLIES", string.Empty);
 
 //regular Program.cs code
+using FileProcessing.Infrastructure.Persistence;
 using FileProcessing.Infrastructure.Persistence.Composition;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
