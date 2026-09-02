@@ -3,31 +3,26 @@
   <Folder Name="/Core/" />
 
   <Folder Name="/Core/CommonLibrary/">
-    <Project Path="Core/CommonLibrary/FileProcessing.Core.CommonLibrary/FileProcessing.Core.CommonLibrary.csproj"
-             Id="9c175fa5-1458-4edd-a74f-136d6c1445bf" />
+    <Project Path="Core/CommonLibrary/FileProcessing.Core.CommonLibrary/FileProcessing.Core.CommonLibrary.csproj" Id="9c175fa5-1458-4edd-a74f-136d6c1445bf" />
   </Folder>
 
   <Folder Name="/Core/DomainLibrary/">
-    <Project Path="Core/DomainLibrary/FileProcessing.Core.DomainLibrary/FileProcessing.Core.DomainLibrary.csproj"
-             Id="024074a7-0ba4-4335-94ca-0eeb7d52aff1" />
+    <Project Path="Core/DomainLibrary/FileProcessing.Core.DomainLibrary/FileProcessing.Core.DomainLibrary.csproj" Id="024074a7-0ba4-4335-94ca-0eeb7d52aff1" />
   </Folder>
 
 
   <Folder Name="/Infrastructure/" />
 
   <Folder Name="/Infrastructure/Cache/">
-    <Project Path="Infrastructure/Cache/FileProcessing.Infrastructure.Cache/FileProcessing.Infrastructure.Cache.csproj"
-             Id="7817a78f-3ee6-4257-bdfb-077410645499" />
+    <Project Path="Infrastructure/Cache/FileProcessing.Infrastructure.Cache/FileProcessing.Infrastructure.Cache.csproj" Id="7817a78f-3ee6-4257-bdfb-077410645499" />
   </Folder>
 
   <Folder Name="/Infrastructure/DatabaseMigration/">
-    <Project Path="Infrastructure/DatabaseMigration/FileProcessing.Infrastructure.DatabaseMigration/FileProcessing.Infrastructure.DatabaseMigration.csproj"
-             Id="1c431203-8f6a-412f-8816-f94d6563fd77" />
+    <Project Path="Infrastructure/DatabaseMigration/FileProcessing.Infrastructure.DatabaseMigration/FileProcessing.Infrastructure.DatabaseMigration.csproj" Id="1c431203-8f6a-412f-8816-f94d6563fd77" />
   </Folder>
 
   <Folder Name="/Infrastructure/Persistence/">
-    <Project Path="Infrastructure/Persistence/FileProcessing.Infrastructure.Persistence/FileProcessing.Infrastructure.Persistence.csproj"
-             Id="5d6b82d3-838c-4a4e-8b56-21d2cba6d102" />
+    <Project Path="Infrastructure/Persistence/FileProcessing.Infrastructure.Persistence/FileProcessing.Infrastructure.Persistence.csproj" Id="5d6b82d3-838c-4a4e-8b56-21d2cba6d102" />
   </Folder>
 
 
@@ -40,20 +35,11 @@
   <Folder Name="/Modules/PDF/" />
 
   <Folder Name="/Modules/UserManagement/">
-    <Project Path="Modules/UserManagement/UserManagement.AM/UserManagement.AM.csproj"
-             Id="5770d6af-032e-4c6a-baea-5123cc283fa4" />
-
-    <Project Path="Modules/UserManagement/UserManagement.DM/UserManagement.DM.csproj"
-             Id="6634bd6b-dccd-48d0-a9a4-fd377f69ea93" />
-
-    <Project Path="Modules/UserManagement/UserManagement.PL/UserManagement.PL.csproj"
-             Id="ac8b14d1-83db-4e2f-a12b-e404c757ca86" />
-
-    <Project Path="Modules/UserManagement/UserManagement.SL/UserManagement.SL.csproj"
-             Id="fe70d9fb-a737-4f40-bbb5-dde4912d5a4c" />
-
-    <Project Path="Modules/UserManagement/UserManagement.Web/UserManagement.Web.csproj"
-             Id="bb216294-7146-4634-9705-c2a7047cf6ca" />
+    <Project Path="Modules/UserManagement/UserManagement.AM/UserManagement.AM.csproj" Id="5770d6af-032e-4c6a-baea-5123cc283fa4" />
+    <Project Path="Modules/UserManagement/UserManagement.DM/UserManagement.DM.csproj" Id="6634bd6b-dccd-48d0-a9a4-fd377f69ea93" />
+    <Project Path="Modules/UserManagement/UserManagement.PL/UserManagement.PL.csproj" Id="ac8b14d1-83db-4e2f-a12b-e404c757ca86" />
+    <Project Path="Modules/UserManagement/UserManagement.SL/UserManagement.SL.csproj" Id="fe70d9fb-a737-4f40-bbb5-dde4912d5a4c" />
+    <Project Path="Modules/UserManagement/UserManagement.Web/UserManagement.Web.csproj" Id="bb216294-7146-4634-9705-c2a7047cf6ca" />
   </Folder>
 
 
@@ -68,9 +54,7 @@
 
 
   <Folder Name="/WebSolution/">
-    <Project Path="WebSolution/FileProcessing.WebSolution/FileProcessing.WebSolution.ModuleComposition/FileProcessing.WebSolution.ModuleComposition.csproj"
-             Id="ec66a0ae-8ef5-4705-a84c-ad6ab260776e" />
-
+    <Project Path="WebSolution/FileProcessing.WebSolution/FileProcessing.WebSolution.ModuleComposition/FileProcessing.WebSolution.ModuleComposition.csproj" Id="ec66a0ae-8ef5-4705-a84c-ad6ab260776e" />
     <Project Path="WebSolution/FileProcessing.WebSolution/FileProcessing.WebSolution.Server/FileProcessing.WebSolution.Server.csproj" />
   </Folder>
 
