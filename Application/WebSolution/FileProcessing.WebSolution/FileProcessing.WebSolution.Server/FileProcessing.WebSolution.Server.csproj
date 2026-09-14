@@ -4,14 +4,31 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>8c4ac347-8c86-476b-8b53-e40a47e57f63</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\Logo\App_Dark_Logo.png" />
+    <Content Remove="wwwroot\Logo\App_Light_Logo.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.11" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\CommonLibrary\FileProcessing.Core.CommonLibrary\FileProcessing.Core.CommonLibrary.csproj" />
     <ProjectReference Include="..\..\..\Infrastructure\Persistence\FileProcessing.Infrastructure.Persistence\FileProcessing.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\FileProcessing.WebSolution.ModuleComposition\FileProcessing.WebSolution.ModuleComposition.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Logo\App_Dark_Logo.png" />
+    <None Include="wwwroot\Logo\App_Light_Logo.png" />
   </ItemGroup>
 
 </Project>

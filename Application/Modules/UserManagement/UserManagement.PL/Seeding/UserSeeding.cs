@@ -10,22 +10,22 @@ namespace UserManagement.PL.Seeding
     {
         public async Task SeedAsync(AppDbContext dbContext, CancellationToken cancellationToken = default)
         {
-            var roleEntity = dbContext.Roles();
+            //var roleEntity = dbContext.Roles();
 
-            foreach (var seed in RoleSeedData.Create())
-            {
+            //foreach (var seed in RoleSeedData.Create())
+            //{
 
-                var eachSectionData = await roleEntity.FindAsync([seed.Id]);
+            //    var eachSectionData = await roleEntity.FindAsync([seed.Id]);
 
-                if (eachSectionData is null)
-                {
-                    roleEntity.Add(seed);
-                    continue;
-                }
-                eachSectionData.Id = seed.Id;
-                eachSectionData.RoleName = seed.RoleName;
-            }
-            await dbContext.SaveChangesAsync(cancellationToken);
+            //    if (eachSectionData is null)
+            //    {
+            //        roleEntity.Add(seed);
+            //        continue;
+            //    }
+            //    eachSectionData.Id = seed.Id;
+            //    eachSectionData.RoleName = seed.RoleName;
+            //}
+            //await dbContext.SaveChangesAsync(cancellationToken);
         }
     }
 }

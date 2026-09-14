@@ -1,11 +1,9 @@
-//// SpaProxy loading ko programmatically stop karne ke liye top par add karein
-//Environment.SetEnvironmentVariable("ASPNETCORE_HOSTINGSTARTUPASSEMBLIES", string.Empty);
-
-//regular Program.cs code
-using FileProcessing.Infrastructure.Persistence;
+using FileProcessing.Core.CommonLibrary.Exceptions;
+using FileProcessing.Core.CommonLibrary.Extensions;
 using FileProcessing.Infrastructure.Persistence.Composition;
+using FileProcessing.WebSolution.ModuleComposition;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +11,10 @@ builder.Services.AddAppDbContextDependencyInjection((_, options) =>
 {
     options.UseSqlServer(GetConnectionString(builder));
 });
+
+//serilog configuration
+builder.Host.ConfigureSerilog(builder.Configuration);
+builder.Services.AddModuleComposition(builder.Configuration);
 // Add services to the container.
 builder.Services.AddCors(options =>
 {
@@ -23,24 +25,35 @@ builder.Services.AddCors(options =>
 });
 var app = builder.Build();
 
-app.UseDefaultFiles();
-app.MapStaticAssets();
+//Register the global exception handler middleware
+app.UseMiddleware<GlobalExceptionHandler>();
+app.MapControllers(); // Map the controllers to the request pipeline
+app.UseDefaultFiles(); //Find and match the default file like index.html etc.
+app.MapStaticAssets(); // Map the static assets folder to the request path "/assets"
+app.UseStatusCodePages(); // Handle status code pages for 404, 500, etc.
 
 // Configure the HTTP request pipeline.
+app.UseHttpsRedirection(); //http request convert into https request
+app.UseStaticFiles(); //https://localhost:5001/images/photo.jpg
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "PrivateAssets")),
+//    RequestPath = "/assets" /* requestpath "/assets/image.png" client access */
+//});
 
-app.UseHttpsRedirection();
+app.UseCors("AllowAngularApp");
 
-app.MapFallbackToFile("/index.html");
+//app.UseAuthentication();
+//app.UseAuthorization();
+
+app.MapFallback(() => Results.NotFound("The requested resource was not found."));
 Console.WriteLine("Server started");
 app.Run();
-
-
-
 static string GetConnectionString(WebApplicationBuilder builder)
 {
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-    if (!connectionString.IsNullOrEmpty())
+    if (!string.IsNullOrEmpty(connectionString))
     {
         return connectionString!;
     }

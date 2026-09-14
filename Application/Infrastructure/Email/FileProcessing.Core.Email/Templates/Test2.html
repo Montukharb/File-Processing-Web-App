@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="supported-color-schemes" content="light dark" />
+
+    <title>User Sign Up</title>
+
+    <style>
+        :root {
+            --bg-color: #F4F6F9;
+            --container-bg-color: #FFFFFF;
+            --body-color: #1E293B;
+            --title-color: #0645AD;
+            --text-color: #171818;
+
+            --btn-text-color: #ffffff;
+            --border-color: #a7acb3;
+            --box-shadow-value: 0 2px 4px 2px;
+            --box-shadow-color: rgba(0, 0, 0, 0.1);
+            --link-color: rgba(0, 11, 112, 0.987);
+            --link-bg-color: rgb(220, 219, 219);
+            --logo-gradient-color: linear-gradient(90deg, #0645AD 0%, #007BFF 25%, #00B8E6 50%, #00D9C0 75%, #4ADE80 100%);
+            --btn-bg-gradient-color: linear-gradient(90deg, #0645AD 0%, #007BFF 25%, #00B8E6 50%, #00D9C0 75%, #4ADE80 100%);
+            --logo-bottom-gradient-color: var(--logo-gradient-color);
+        }
+
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #333333;
+                --container-bg-color: #363535fd;
+                --body-color: hsl(0, 0%, 100%);
+                --box-shadow-value: 0 2px 6px -1.5px;
+                --box-shadow-color: rgba(114, 114, 114, 0.847);
+
+                --title-color: #38bdf8;
+                --text-color: #ffffff;
+
+                --btn-text-color: #ffffff;
+                --border-color: #00bfff;
+                --link-color: rgba(0, 11, 112, 0.987);
+                --link-bg-color: white;
+
+                --container-bg-gradient-color: linear-gradient(to bottom, #FFFFFF 0%, #e5e8ed 15%, #374151 55%, #111827 100%);
+                --logo-bottom-gradient-color: black;
+
+            }
+        }
+
+        /* Light mode - default */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color) !important;
+            color: var(--body-color) !important;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 40px auto;
+            box-sizing: border-box;
+            /* background-color: var(--container-bg-color); */
+            background: var(--container-bg-gradient-color);
+            border-radius: 5px;
+            border-left: 2.5px solid var(--border-color);
+            border-right: 2.5px solid var(--border-color);
+            box-shadow: var(--box-shadow-value) var(--box-shadow-color);
+            word-spacing: 0.1cap;
+            color: var(--text-color);
+        }
+
+        .title {
+            background: var(--logo-gradient-color);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            /* -webkit-text-fill-color: transparent; */
+        }
+
+
+        .verify-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--btn-bg-gradient-color);
+            color: var(--btn-text-color) !important;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        #contact {
+            display: inline-block;
+            padding: 12px 24px;
+            /* background: var(--btn-bg-gradient-color); */
+            color: var(--text-color) !important;
+            text-decoration: none;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            font-weight: bold;
+        }
+
+        header {
+            text-align: left;
+            /* background-color: #2563EB; */
+            /* background-color: #0284C7; */
+            /* background-color: #eeeeee; */
+
+            border-top-left-radius: 3.5px;
+            border-top-right-radius: 3.5px;
+            margin-top: 0.2px;
+            padding: 20px;
+            /* background-color: var(--logo-bg-color); */
+        }
+
+        header .logo {
+            width: 250px;
+
+        }
+
+        #logobottom {
+            display: block;
+            height: 1px;
+            width: 100%;
+            background: var(--logo-bottom-gradient-color);
+        }
+
+
+        @media screen and (max-width:600px) {}
+    </style>
+</head>
+
+<body>
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+
+                <table class="email-container" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            <header>
+                                <img class="logo" src="Logo/App_Logo 2.png" alt="Process-K-Engiine Logo">
+                            </header>
+                            <span id="logobottom"></span>
+                        </td>
+                    </tr>
+
+                    <tr id="common-section">
+                        <td style="padding: 20px 40px 40px 40px;">
+                            <h1 class="title">
+                                Welcome to the Family!
+                            </h1>
+                            <h4 title="User Name">Hi [User Name],</h4>
+                            <p class="text">
+                                Thanks for trying <strong
+                                    style="padding:2px;background-color: var(--link-bg-color);color: var(--link-color);">[product
+                                    Name]</strong>.
+                                We're thrilled to have you on board. To get the most out of [Product Name], do this
+                                primary next step:
+                            </p>
+
+
+                            <p>For reference, here's your login information:</p>
+
+                            <section class="userQuery">
+                                <p>If you have any questions, feel free to email our customer success team. (We're
+                                    lightning quick at replying.) We also offer live chat during business hours.</p>
+                                <a href="https://localhost:5009/api/test/dummy/" id="contact">
+                                    CONTACT US
+                                </a>
+                            </section>
+
+                            <section class="greeting_and_help">
+
+                                <p id="greeting">
+                                    Thanks, <br>
+                                    The [Product Name] team
+                                </p>
+                                <p id="help">
+                                    P.S. Need immediate help getting started? Check out our help documentation. Or, just
+                                    reply to this email, the [Product Name] support team is always
+                                    <a href="">ready to help!</a>
+                                </p>
+                            </section>
+                            <section>
+
+                                <p class="troubleshoot">
+
+                                    If you' re having trouble with the button above, copy and paste the URL below into
+                                    your web browser.
+                                    <span>[action url]</span>
+                                </p>
+                            </section>
+                            <a href="https://localhost:5009/api/test/dummy/" class="verify-button">
+                                Verify Email
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

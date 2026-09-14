@@ -6,14 +6,12 @@ namespace FileProcessing.Core.DomainLibrary.DomainModel
 {
     public interface IAuditEntity
     {
-        int Id { get; set; }
-
-        int? App_CreateUserId { get; set; }
-        int? App_UpdateUserId { get; set; }
-
-        DateTime App_CreateDate { get; set; }
-        DateTime? App_UpdateDate { get; set; }
-
-        byte[] App_Version { get; set; }
+        public Guid Id { get; set; }
+        public long? CreatedBy_UserId { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public long? UpdatedBy_UserId { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public string? IpAddress { get; set; }
+        string App_Version { get; set; }
     }
 }
