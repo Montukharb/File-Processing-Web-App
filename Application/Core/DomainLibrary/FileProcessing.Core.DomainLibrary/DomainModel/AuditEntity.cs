@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace FileProcessing.Core.DomainLibrary.DomainModel
 {
-    public abstract class AuditEntity : IAuditEntity
+    public abstract class AuditEntity() : IAuditEntity
     {
         [Key]
-        public int Id { get; set; }
-
-        public int? App_CreateUserId { get; set; }
-        public int? App_UpdateUserId { get; set; }
-
-        public DateTime App_CreateDate { get; set; } = DateTime.UtcNow;
-        public DateTime? App_UpdateDate { get; set; }
-
-        public byte[] App_Version { get; set; } = [];
+        public abstract Guid Id { get; set; }
+        public abstract long? CreatedBy_UserId { get; set; }
+        public abstract DateTime CreatedAt { get; set; }
+        public abstract long? UpdatedBy_UserId { get; set; }
+        public abstract DateTime? UpdatedAt { get; set; }
+        public abstract string? IpAddress { get; set; }
+        public abstract string App_Version { get; set; }
     }
 }

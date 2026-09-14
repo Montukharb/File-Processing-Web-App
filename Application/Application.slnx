@@ -20,6 +20,9 @@
   <Folder Name="/Infrastructure/DatabaseMigration/">
     <Project Path="Infrastructure/DatabaseMigration/FileProcessing.Infrastructure.DatabaseMigration/FileProcessing.Infrastructure.DatabaseMigration.csproj" Id="1c431203-8f6a-412f-8816-f94d6563fd77" />
   </Folder>
+  <Folder Name="/Infrastructure/Email/">
+    <Project Path="Infrastructure/Email/FileProcessing.Core.Email/FileProcessing.Core.Email.csproj" Id="0ad9eb9b-c168-418c-b3da-6a9334ba1607" />
+  </Folder>
 
   <Folder Name="/Infrastructure/Persistence/">
     <Project Path="Infrastructure/Persistence/FileProcessing.Infrastructure.Persistence/FileProcessing.Infrastructure.Persistence.csproj" Id="5d6b82d3-838c-4a4e-8b56-21d2cba6d102" />
