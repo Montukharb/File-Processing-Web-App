@@ -1,11 +1,11 @@
-﻿using FileProcessing.Core.Email.Abstraction;
-using FileProcessing.Core.Email.Settings;
+﻿using FileProcessing.Infrastructure.Email.Abstraction;
+using FileProcessing.Infrastructure.Email.Settings;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using MailKit.Net.Smtp;
 using MailKit.Security;
-using FileProcessing.Core.Email.Models;
-using FileProcessing.Core.Email.Abstraction.EmailTemplateAbstraction;
+using FileProcessing.Infrastructure.Email.Models;
+using FileProcessing.Infrastructure.Email.Abstraction.EmailTemplateAbstraction;
 
 
 namespace FileProcessing.Core.Email.Service

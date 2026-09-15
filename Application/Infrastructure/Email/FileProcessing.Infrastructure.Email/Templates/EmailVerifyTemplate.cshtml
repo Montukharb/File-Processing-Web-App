@@ -1,7 +1,7 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@model FileProcessing.Core.Email.Models.UserSignUpModel;
+@model FileProcessing.Infrastructure.Email.Models.UserSignUpModel;
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +12,7 @@
     <meta name="supported-color-schemes" content="light dark" />
     <title>Verify Your Email</title>
     <style>
-           @@media (prefers-color-scheme: dark) {
+            @@media (prefers-color-scheme: dark) {
                 body {
                     background-color: #222222 !important;
                     color: #ffffff !important;
@@ -111,7 +111,7 @@
                                  style="display: block; width: 220px; height: auto; max-width: 100%;">
                             <img class="logo-dark" src="@Model.LogoBaseDarkString" alt="Process-K-Engine Logo"
                                  style="display: none; width: 220px; height: auto; max-width: 100%;">
-                                 
+
                         </td>
                     </tr>
 
@@ -126,15 +126,14 @@
                             <p class="text-main"
                                style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6; color: #334155;">
                                 Hi
-                                <strong>[User Name]</strong>,
+                                <strong>@Model.UserName</strong>,
                             </p>
 
                             <p class="text-main"
                                style="margin: 0 0 25px 0; font-size: 16px; line-height: 1.6; color: #334155;">
                                 Thanks for trying <span class="product-highlight"
                                                     style="padding: 2px 6px; background-color: #F1F5F9; color: #0645AD; font-weight: bold; border-radius: 4px;">
-                                [Product
-                                Name]
+                                Process-K-Engine
                             </span>. We're thrilled to have you on board! To fully activate your account
                             and secure your login data, please verify your email address.
                         </p>
@@ -143,10 +142,9 @@
                         <table cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
                             <tr>
                                 <td align="center" style="border-radius:3px; background-color: #007dd6ec;">
-                                    <a href="https://localhost:5009/api/test/dummy/" class="verify-button"
+                                    <a href="@Model.ActionUrl" class="verify-button"
                                        style="display:block; padding: 14px 15px; font-size: 14px; font-weight: bold; color: #FFFFFF; text-decoration: none;">
-                                        Verify
-                                        Email Address
+                                        @Model.ActionText
                                     </a>
                                 </td>
                             </tr>
@@ -160,7 +158,7 @@
                         </p>
                         <span class="action-url"
                               style="border-radius: 3px; display: block; padding: 14px; background-color: #e9e9e9;">
-                            [Action Url]
+                            @Model.ActionUrl
                         </span>
                         <hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 30px 0;">
 
@@ -174,7 +172,7 @@
                         <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 35px;">
                             <tr>
                                 <td>
-                                    <a href="https://localhost:5009/api/test/dummy/" id="contact"
+                                    <a href="@Model.ContactUsPageUrl" id="contact"
                                        style="display: inline-block; padding: 10px 20px; font-size: 14px; font-weight: bold; color: #334155; text-decoration: none; border: 1px solid #CBD5E1; border-radius: 6px;">
                                         CONTACT
                                         US
@@ -188,76 +186,85 @@
                             <tr>
                                 <td id="thanks" style="font-size: 15px; line-height: 1.6; color: #334155;">
                                     Thanks,<br>
-                                    <strong>The [Product Name] Team</strong>
-                                </td>
-                            </tr>
-                        </table>
-
-                        <!-- P.S. -->
-                        <p id="help"
-                           style="margin: 25px 0 0 0; font-size: 14px; line-height: 1.6; color: #64748B; font-style: italic;">
-                            <strong>P.S.</strong> Need immediate help getting started? Check out our <a href="">
-                            help
-                            documentation.
-                        </a> Or, just reply to this email—the support team is always ready to
-                        assist!
-                    </p>
-                </td>
-            </tr>
-
-            <!-- Professional Footer Section with Socials -->
-            <tr>
-                <td class="content-padding" id="footer"
-                    style="padding: 30px 40px; background-color: #F8FAFC; border-top: 1px solid #E2E8F0; text-align: center;">
-
-                    <!-- Social Links (Inline Text/Icons to ensure cross-client styling) -->
-                    <table id="social-link" align="center" cellpadding="0" cellspacing="0" border="0"
-                           style="margin-bottom: 20px;">
-                        <tr>
-                            <td style="padding: 0 10px;">
-                                <a href="[Twitter_Link]"
-                                   style="font-size: 14px; color: #0645AD; text-decoration: none; font-weight: bold;">Twitter</a>
-                            </td>
-                            <td style="padding: 0 10px; color: #CBD5E1;">|</td>
-                            <td style="padding: 0 10px;">
-                                <a href="[LinkedIn_Link]"
-                                   style="font-size: 14px; color: #0645AD; text-decoration: none; font-weight: bold;">LinkedIn</a>
-                            </td>
-                            <td style="padding: 0 10px; color: #CBD5E1;">|</td>
-                            <td style="padding: 0 10px;">
-                                <a href="[GitHub_or_Website_Link]"
-                                   style="font-size: 14px; color: #0645AD; text-decoration: none; font-weight: bold;">Website</a>
+                                    <strong>
+                                        The <span class="product-highlight"
+                                              style="padding: 2px 6px; background-color: #F1F5F9; color: #0645AD; font-weight: bold; border-radius: 4px;">
+                                        Process-K-Engine
+                                    </span> Team
+                                </strong>
                             </td>
                         </tr>
                     </table>
 
-                    <p class="footer-text"
-                       style="margin: 0 0 10px 0; font-size: 12px; line-height: 1.5; color: #94A3B8;">
-                        You received this email because you signed up for an account on [Product Name].
-                    </p>
-
-                    <!-- Safety Mechanism Link -->
-                    <p class="footer-text"
-                       style="margin: 0 0 15px 0; font-size: 12px; line-height: 1.5; color: #94A3B8;">
-                        If you did not create this account, please ignore this email or <a class="footer-link"
-                                                                                       href="[Report_Link]" style="color: #0645AD; text-decoration: underline;">
-                        report it
-                        to us
-                    </a>.
-                </p>
-
-                <p class="footer-text"
-                   style="margin: 0 0 5px 0; font-size: 12px; line-height: 1.5; color: #94A3B8;">
-                    123 Business Jaat Rd, Suite 100, Sonipat, Haryana - 131409, India
-                </p>
-                <p class="footer-text"
-                   style="margin: 0; font-size: 12px; color: #94A3B8; font-weight: 500;">
-                    &copy; 2026 [Product Name]. All rights reserved.
+                    <!-- P.S. -->
+                    <p id="help"
+                       style="margin: 25px 0 0 0; font-size: 14px; line-height: 1.6; color: #64748B; font-style: italic;">
+                        <strong>P.S.</strong> Need immediate help getting started? Check out our <a href="@Model.HelpUrl">
+                        help
+                        documentation.
+                    </a> Or, just reply to this email—the support team is always ready to
+                    assist!
                 </p>
             </td>
         </tr>
 
-    </table>
+        <!-- Professional Footer Section with Socials -->
+        <tr>
+            <td class="content-padding" id="footer"
+                style="padding: 30px 40px; background-color: #F8FAFC; border-top: 1px solid #E2E8F0; text-align: center;">
+
+                <!-- Social Links (Inline Text/Icons to ensure cross-client styling) -->
+                <table id="social-link" align="center" cellpadding="0" cellspacing="0" border="0"
+                       style="margin-bottom: 20px;">
+                    <tr>
+                        <td style="padding: 0 10px;">
+                            <a href="@Model.Twitter_Link"
+                               style="font-size: 14px; color: #0645AD; text-decoration: none; font-weight: bold;">Twitter</a>
+                        </td>   
+                        <td style="padding: 0 10px; color: #CBD5E1;">|</td>
+                        <td style="padding: 0 10px;">
+                            <a href="@Model.LinkedIn_Link"
+                               style="font-size: 14px; color: #0645AD; text-decoration: none; font-weight: bold;">LinkedIn</a>
+                        </td>
+                        <td style="padding: 0 10px; color: #CBD5E1;">|</td>
+                        <td style="padding: 0 10px;">
+                            <a href="@Model.GitHub_or_Website_Link"
+                               style="font-size: 14px; color: #0645AD; text-decoration: none; font-weight: bold;">Website</a>
+                        </td>
+                    </tr>
+                </table>
+
+                <p class="footer-text"
+                   style="margin: 0 0 10px 0; font-size: 12px; line-height: 1.5; color: #94A3B8;">
+                    You received this email because you signed up for an account on <span class="product-highlight" style="padding: 2px 6px; background-color: #F1F5F9; color: #0645AD; font-weight: bold; border-radius: 4px;">
+                    Process-K-Engine
+                </span>.
+            </p>
+
+            <!-- Safety Mechanism Link -->
+            <p class="footer-text"
+               style="margin: 0 0 15px 0; font-size: 12px; line-height: 1.5; color: #94A3B8;">
+                If you did not create this account, please ignore this email or <a class="footer-link"
+                                                                               href="@Model.Report_Link" style="color: #0645AD; text-decoration: underline;">
+                report it
+                to us
+            </a>.
+        </p>
+
+        <p class="footer-text"
+           style="margin: 0 0 5px 0; font-size: 12px; line-height: 1.5; color: #94A3B8;">
+            Montu Kharb | Independent Software Engineer / Freelancer | Jaat Rd, Suite 100, Sonipat, Haryana - 131409, India
+        </p>
+        <p class="footer-text"
+           style="margin: 0; font-size: 12px; color: #94A3B8; font-weight: 500;">
+            &copy; 2026 <span class="product-highlight" style="padding: 2px 6px; background-color: #F1F5F9; color: #0645AD; font-weight: bold; border-radius: 4px;">
+            Process-K-Engine
+        </span>. All rights reserved.
+    </p>
+</td>
+</tr>
+
+</table>
 
 </td>
 </tr>

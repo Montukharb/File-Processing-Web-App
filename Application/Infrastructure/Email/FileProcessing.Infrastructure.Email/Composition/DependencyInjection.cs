@@ -1,11 +1,9 @@
-﻿using FileProcessing.Core.Email.Abstraction;
-using FileProcessing.Core.Email.Abstraction.EmailTemplateAbstraction;
-using FileProcessing.Core.Email.Service;
+﻿using FileProcessing.Core.Email.Service;
 using FileProcessing.Core.Email.Service.TemplateService;
+using FileProcessing.Infrastructure.Email.Abstraction;
+using FileProcessing.Infrastructure.Email.Abstraction.EmailTemplateAbstraction;
+using FileProcessing.Infrastructure.Email.Service.TemplateService;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FileProcessing.Core.Email.Composition
 {

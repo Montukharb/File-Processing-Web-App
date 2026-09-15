@@ -12,6 +12,9 @@
 
 
   <Folder Name="/Infrastructure/" />
+  <Folder Name="/Infrastructure/BackgroundServices/">
+    <Project Path="Infrastructure/BackgroundServices/FileProcessing.Infrastructure.BackgroundServices/FileProcessing.Infrastructure.BackgroundServices.csproj" Id="19878013-87d2-48df-999f-3ae90c40b032" />
+  </Folder>
 
   <Folder Name="/Infrastructure/Cache/">
     <Project Path="Infrastructure/Cache/FileProcessing.Infrastructure.Cache/FileProcessing.Infrastructure.Cache.csproj" Id="7817a78f-3ee6-4257-bdfb-077410645499" />
@@ -21,7 +24,7 @@
     <Project Path="Infrastructure/DatabaseMigration/FileProcessing.Infrastructure.DatabaseMigration/FileProcessing.Infrastructure.DatabaseMigration.csproj" Id="1c431203-8f6a-412f-8816-f94d6563fd77" />
   </Folder>
   <Folder Name="/Infrastructure/Email/">
-    <Project Path="Infrastructure/Email/FileProcessing.Core.Email/FileProcessing.Core.Email.csproj" Id="0ad9eb9b-c168-418c-b3da-6a9334ba1607" />
+    <Project Path="Infrastructure/Email/FileProcessing.Infrastructure.Email/FileProcessing.Infrastructure.Email.csproj" />
   </Folder>
 
   <Folder Name="/Infrastructure/Persistence/">

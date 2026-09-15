@@ -1,10 +1,10 @@
-﻿using FileProcessing.Core.Email.Abstraction.EmailTemplateAbstraction;
+﻿using FileProcessing.Infrastructure.Email.Abstraction.EmailTemplateAbstraction;
 using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FileProcessing.Core.Email.Service.TemplateService
+namespace FileProcessing.Infrastructure.Email.Service.TemplateService
 {
     public class AppLogoProvider(IWebHostEnvironment _Environment) : IAppLogoProvider
     {

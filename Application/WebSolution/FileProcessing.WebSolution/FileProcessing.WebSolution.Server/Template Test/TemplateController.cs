@@ -1,5 +1,5 @@
-﻿using FileProcessing.Core.Email.Abstraction.EmailTemplateAbstraction;
-using FileProcessing.Core.Email.Models;
+﻿using FileProcessing.Infrastructure.Email.Abstraction.EmailTemplateAbstraction;
+using FileProcessing.Infrastructure.Email.Models;
 using Microsoft.AspNetCore.Mvc;
 using Razor.Templating.Core;
 using static System.Net.Mime.MediaTypeNames;
@@ -21,6 +21,9 @@ namespace FileProcessing.WebSolution.Server.Template_Test
 
             
             var html = await TemplateService.RenderSignUpTemplateAsync(model);
+            //var scheme = HttpContext.Request.Scheme;
+            //var host = HttpContext.Request.Host;
+        //https://localhost:5001/account/verify-email?token=...
             return Content(html, "text/html");
         }
 

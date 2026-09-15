@@ -1,4 +1,4 @@
-﻿namespace FileProcessing.Core.Email.Settings
+﻿namespace FileProcessing.Infrastructure.Email.Settings
 {
     public class EmailSetting
     {
