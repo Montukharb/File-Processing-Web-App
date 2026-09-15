@@ -1,6 +1,5 @@
-﻿using FileProcessing.Core.Email.Models;
-
-namespace FileProcessing.Core.Email.Abstraction.EmailTemplateAbstraction
+﻿
+namespace FileProcessing.Infrastructure.Email.Abstraction.EmailTemplateAbstraction
 {
     public interface ISignUpTemplateService
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using FileProcessing.Core.Email.Settings;
 using Microsoft.Extensions.Configuration;
-using FileProcessing.Core.Email.Composition;
 using FileProcessing.Core.CommonLibrary.Exceptions;
+using FileProcessing.Infrastructure.Email.Settings;
+using FileProcessing.Core.Email.Composition;
 
 namespace FileProcessing.WebSolution.ModuleComposition
 {

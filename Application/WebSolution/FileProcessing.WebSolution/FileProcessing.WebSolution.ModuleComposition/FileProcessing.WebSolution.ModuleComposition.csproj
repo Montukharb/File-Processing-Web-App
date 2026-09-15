@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\CommonLibrary\FileProcessing.Core.CommonLibrary\FileProcessing.Core.CommonLibrary.csproj" />
-    <ProjectReference Include="..\..\..\Infrastructure\Email\FileProcessing.Core.Email\FileProcessing.Core.Email.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\Email\FileProcessing.Infrastructure.Email\FileProcessing.Infrastructure.Email.csproj" />
    
   </ItemGroup>
 

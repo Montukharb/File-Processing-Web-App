@@ -1,6 +1,6 @@
-﻿using FileProcessing.Core.Email.Abstraction;
-using FileProcessing.Core.Email.Abstraction.EmailTemplateAbstraction;
-using FileProcessing.Core.Email.Models;
+﻿using FileProcessing.Infrastructure.Email.Abstraction;
+using FileProcessing.Infrastructure.Email.Abstraction.EmailTemplateAbstraction;
+using FileProcessing.Infrastructure.Email.Models;
 using Razor.Templating.Core;
 
 namespace FileProcessing.Core.Email.Service.TemplateService
