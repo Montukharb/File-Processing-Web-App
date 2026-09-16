@@ -12,8 +12,8 @@
 
 
   <Folder Name="/Infrastructure/" />
-  <Folder Name="/Infrastructure/BackgroundServices/">
-    <Project Path="Infrastructure/BackgroundServices/FileProcessing.Infrastructure.BackgroundServices/FileProcessing.Infrastructure.BackgroundServices.csproj" Id="19878013-87d2-48df-999f-3ae90c40b032" />
+  <Folder Name="/Infrastructure/BackgroundJobs/">
+    <Project Path="Infrastructure/BackgroundJobs/FileProcessing.Infrastructure.Background/FileProcessing.Infrastructure.Background.csproj" Id="28ead724-8577-4aac-b93d-26b1b2d52ece" />
   </Folder>
 
   <Folder Name="/Infrastructure/Cache/">
@@ -29,6 +29,9 @@
 
   <Folder Name="/Infrastructure/Persistence/">
     <Project Path="Infrastructure/Persistence/FileProcessing.Infrastructure.Persistence/FileProcessing.Infrastructure.Persistence.csproj" Id="5d6b82d3-838c-4a4e-8b56-21d2cba6d102" />
+  </Folder>
+  <Folder Name="/Infrastructure/TaskQueue/">
+    <Project Path="Infrastructure/TaskQueue/FileProcessing.Infrastructure.TaskQueue/FileProcessing.Infrastructure.TaskQueue.csproj" Id="30298df5-2a19-4153-b5b4-389109431f47" />
   </Folder>
 
 

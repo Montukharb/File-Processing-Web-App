@@ -4,7 +4,6 @@ using Microsoft.Extensions.Options;
 using MimeKit;
 using MailKit.Net.Smtp;
 using MailKit.Security;
-using FileProcessing.Infrastructure.Email.Models;
 using FileProcessing.Infrastructure.Email.Abstraction.EmailTemplateAbstraction;
 
 
@@ -41,7 +40,6 @@ namespace FileProcessing.Core.Email.Service
             {
                 TextBody = model.TextBody,
                 HtmlBody = await _signUpTemplateService.RenderSignUpTemplateAsync(model)
-
             };
             message.Body = bodyBuilder.ToMessageBody();
 

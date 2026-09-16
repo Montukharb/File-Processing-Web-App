@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using FileProcessing.Core.CommonLibrary.Exceptions;
 using FileProcessing.Infrastructure.Email.Settings;
 using FileProcessing.Core.Email.Composition;
-
+using FileProcessing.Infrastructure.TaskQueue.Composition;
 namespace FileProcessing.WebSolution.ModuleComposition
 {
     public static class DependencyInjection
@@ -18,6 +18,8 @@ namespace FileProcessing.WebSolution.ModuleComposition
             //builder.Services.Configure<EmailSetting>(builder.Configuration.GetSection("EmailSettings"));
             services.AddTransient<GlobalExceptionHandler>();
             services.Configure<EmailSetting>(configuration.GetSection("EmailSettings"));
+            services.EmailVerifyConfiguration();
+
             services.EmailConfiguration(); //Email Di Register
             return services;
         }

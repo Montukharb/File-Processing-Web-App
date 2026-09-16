@@ -8,7 +8,6 @@ namespace FileProcessing.Infrastructure.Email.Service.TemplateService
 {
     public class AppLogoProvider(IWebHostEnvironment _Environment) : IAppLogoProvider
     {
-
         public Task<byte[]> GetAppLightLogoAsync()
         {
             string path = Path.Combine(_Environment.WebRootPath, "Logo", "App_Light_Logo.png");
