@@ -1,10 +1,18 @@
-﻿using System;
+﻿using FileProcessing.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using UserManagement.PL.EntityDbSet;
 
 namespace UserManagement.PL.ContextConfiguration
 {
-    internal class UserManagementBuilderConfiguration
+    public sealed class UserManagementBuilderConfiguration:IAppDbContextModelConfiguration
     {
+        public void ConfigureModel(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserManagementBuilderConfiguration).Assembly);
+            modelBuilder.UserManagementModuleDbSet(); 
+        }
     }
 }

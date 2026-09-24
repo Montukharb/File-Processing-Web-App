@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>8c4ac347-8c86-476b-8b53-e40a47e57f63</UserSecretsId>
+	  
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,12 +14,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.11" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\CommonLibrary\FileProcessing.Core.CommonLibrary\FileProcessing.Core.CommonLibrary.csproj" />
     <ProjectReference Include="..\..\..\Infrastructure\Persistence\FileProcessing.Infrastructure.Persistence\FileProcessing.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\..\..\Modules\UserManagement\UserManagement.DM\UserManagement.DM.csproj" />
     <ProjectReference Include="..\FileProcessing.WebSolution.ModuleComposition\FileProcessing.WebSolution.ModuleComposition.csproj" />
   </ItemGroup>
 

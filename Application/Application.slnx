@@ -12,6 +12,9 @@
 
 
   <Folder Name="/Infrastructure/" />
+  <Folder Name="/Infrastructure/ApiRateLimiter/">
+    <Project Path="Infrastructure/ApiRateLimiter/FileProcessing.Infrastructure.ApiRateLimiter/FileProcessing.Infrastructure.ApiRateLimiter.csproj" Id="714e1600-5f82-46cf-996c-6e38e2b008f0" />
+  </Folder>
   <Folder Name="/Infrastructure/BackgroundJobs/">
     <Project Path="Infrastructure/BackgroundJobs/FileProcessing.Infrastructure.Background/FileProcessing.Infrastructure.Background.csproj" Id="28ead724-8577-4aac-b93d-26b1b2d52ece" />
   </Folder>

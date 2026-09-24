@@ -1,14 +1,12 @@
 ﻿using FileProcessing.Infrastructure.Email.Abstraction;
 using FileProcessing.Infrastructure.TaskQueue.SignupEmailVerifyTask;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace FileProcessing.Infrastructure.Background.EmailVerifyBackgroundTasks;
 
-public class VerifyEmailBackground(
-    IEmailService emailService,
-    IEmailVerifyQueue jobQueue,
-    ILogger<VerifyEmailBackground> logger) : BackgroundService
+public class VerifyEmailBackground(IServiceScopeFactory scopeFactory, IEmailVerifyQueue jobQueue, ILogger<VerifyEmailBackground> logger) : BackgroundService
 {
     protected override async Task ExecuteAsync(
         CancellationToken stoppingToken)
@@ -18,6 +16,8 @@ public class VerifyEmailBackground(
             try
             {
                 var emailModel = await jobQueue.ConsumeJob();
+                using var scope = scopeFactory.CreateAsyncScope();
+                var emailService = scope.ServiceProvider.GetRequiredService<IEmailService>();
 
                 await emailService.SendEmailAsync(emailModel);
 
@@ -29,7 +29,7 @@ public class VerifyEmailBackground(
             }
             catch (Exception ex)
             {
-                logger.LogError("Exception occurred during verify email. {exception}",ex);
+                logger.LogError("Exception occurred during verify email. {exception}", ex);
             }
         }
     }

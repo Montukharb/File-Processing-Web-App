@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,12 @@ namespace FileProcessing.Infrastructure.Persistence.Composition
     {
         public static IServiceCollection AddAppDbContextDependencyInjection(this IServiceCollection service, Action<IServiceProvider, DbContextOptionsBuilder> configureOptions)
         {
-            service.AddDbContext<AppDbContext>((serviceProvider, options) => 
+            service.AddDbContextPool<AppDbContext>((serviceProvider, options) => 
             {
                 configureOptions(serviceProvider, options); 
             });
 
-
+            
             return service;
         }
     }
