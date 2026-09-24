@@ -1,11 +1,13 @@
 using FileProcessing.Infrastructure.DatabaseMigration;
 using FileProcessing.Infrastructure.Persistence;
+using FileProcessing.Infrastructure.Persistence.ApplicationUserManagement;
 using FileProcessing.Infrastructure.Persistence.Seeding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Seeding;
 using System.Diagnostics;
 using UserManagement.PL.Seeding;
+using Microsoft.AspNetCore.Identity;
 
 namespace FileProcessing.Infrastructure.DatabaseMigration
 {
@@ -20,7 +22,7 @@ namespace FileProcessing.Infrastructure.DatabaseMigration
     {
         internal static async Task<int> RunAsync(string[] args)
         {
-            string DefaultConnectionString = "Data Source = localhost; Integrated Security = True; Persist Security Info = False; Server = MONTU-KHARB-DES; Encrypt = True; TrustServerCertificate = True; Initial Catalog = FileProcessing_Web_APP";
+            string DefaultConnectionString = "Data Source = localhost; Integrated Security = True; Persist Security Info = False; Server = LAPTOP-BPRHE8PR; Encrypt = True; TrustServerCertificate = True; Initial Catalog = Processing_K_Engine";
 
             if (args.Length is 0)
             {
@@ -71,7 +73,7 @@ internal sealed class Operation
     internal static async Task CreateMigration(MigrationCommandLine options)
     {
         var process = new ProcessStartInfo("dotnet")
-        {   
+        {
             UseShellExecute = false,
             RedirectStandardOutput = true,
             RedirectStandardError = true,
@@ -116,7 +118,7 @@ internal sealed class Operation
 
         //service schema di register here
         service.AddSingleton<IAppDbContextSeeder, UserSeeding>();
-
+       
 
         service.AddScoped<AppDbContext>(_ =>
         {
@@ -124,7 +126,10 @@ internal sealed class Operation
 
             return factory.CreateDbContext(args);
         });
-
+        service.AddIdentityCore<ApplicationUser>()
+               .AddRoles<IdentityRole>()
+               .AddEntityFrameworkStores<AppDbContext>();
+               //.AddDefaultTokenProviders();
 
         var serviceProvider = service.BuildServiceProvider();
 

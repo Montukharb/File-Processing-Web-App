@@ -2,6 +2,7 @@
 using FileProcessing.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using UserManagement.PL.ContextConfiguration;
 
 //using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -11,7 +12,7 @@ namespace FileProcessing.Infrastructure.DatabaseMigration
     {
         public AppDbContext CreateDbContext(string[] args)
         {
-            string defaultConnectionString = "Data Source = localhost; Integrated Security = True; Persist Security Info = False; Server = MONTU-KHARB-DES; Encrypt = True; TrustServerCertificate = True; Initial Catalog = FileProcessing_Web_APP";
+            string defaultConnectionString = "Data Source = localhost; Integrated Security = True; Persist Security Info = False; Server = LAPTOP-BPRHE8PR; Encrypt = True; TrustServerCertificate = True; Initial Catalog = Processing_K_Engine";
             var connectionString = GetConnectionString(args) ?? Environment.GetEnvironmentVariable("CONNECTION_STRING") ?? defaultConnectionString;
 
             //DbContextOptionBuilder
@@ -20,7 +21,7 @@ namespace FileProcessing.Infrastructure.DatabaseMigration
                 options.MigrationsAssembly(typeof(AppDbContextDesignTimeFactory).Assembly.GetName().Name);
             }).Options;
 
-            return new AppDbContext(optionBuilder, [] );
+            return new AppDbContext(optionBuilder, [new UserManagementBuilderConfiguration()] );
         }
 
         //GetConnectionString

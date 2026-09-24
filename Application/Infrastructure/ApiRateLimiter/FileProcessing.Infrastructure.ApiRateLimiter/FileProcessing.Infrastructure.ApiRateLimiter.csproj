@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="All-Limits\ApiKey_Limit\" />
+    <Folder Include="All-Limits\IP_And_User-Agent_Limit\" />
+    <Folder Include="All-Limits\MultiLayer_Limit\" />
+    <Folder Include="All-Limits\UserID_Limit\" />
+  </ItemGroup>
+
+</Project>

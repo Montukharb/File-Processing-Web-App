@@ -1,10 +1,15 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace UserManagement.PL.EntityDbSet
 {
-    internal class UserManagementDbSet
+    public static class UserManagementDbSet
     {
+        public static void UserManagementModuleDbSet(this ModelBuilder builder)
+        {
+            //builder.Entity<>();
+        }
     }
 }
