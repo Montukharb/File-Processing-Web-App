@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Infrastructure\Persistence\FileProcessing.Infrastructure.Persistence\FileProcessing.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\UserManagement.DM\UserManagement.DM.csproj" />
   </ItemGroup>
 
 </Project>

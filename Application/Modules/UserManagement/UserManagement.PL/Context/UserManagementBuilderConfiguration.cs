@@ -7,12 +7,15 @@ using UserManagement.PL.EntityDbSet;
 
 namespace UserManagement.PL.ContextConfiguration
 {
-    public sealed class UserManagementBuilderConfiguration:IAppDbContextModelConfiguration
+    public sealed class UserManagementBuilderConfiguration : IAppDbContextModelConfiguration
     {
         public void ConfigureModel(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserManagementBuilderConfiguration).Assembly);
-            modelBuilder.UserManagementModuleDbSet(); 
+
+            var UserAssemblyName = new PersistenceAssemblyName();
+            modelBuilder.ApplyConfigurationsFromAssembly(UserAssemblyName.assemblyName);
+            modelBuilder.UserManagementModuleDbSet();
         }
     }
 }
