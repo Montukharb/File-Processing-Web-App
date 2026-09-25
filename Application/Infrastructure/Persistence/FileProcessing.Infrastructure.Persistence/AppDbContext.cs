@@ -1,4 +1,4 @@
-﻿using FileProcessing.Infrastructure.Persistence.ApplicationUserManagement;
+﻿using FileProcessing.Infrastructure.Persistence.ApplicationUserManagement.Entitiy;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;

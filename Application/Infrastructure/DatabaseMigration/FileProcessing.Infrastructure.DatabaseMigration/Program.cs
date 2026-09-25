@@ -8,6 +8,7 @@ using Persistence.Seeding;
 using System.Diagnostics;
 using UserManagement.PL.Seeding;
 using Microsoft.AspNetCore.Identity;
+using FileProcessing.Infrastructure.Persistence.ApplicationUserManagement.Entitiy;
 
 namespace FileProcessing.Infrastructure.DatabaseMigration
 {

@@ -2,6 +2,7 @@ using FileProcessing.Core.CommonLibrary.Exceptions;
 using FileProcessing.Core.CommonLibrary.Extensions;
 using FileProcessing.Infrastructure.Persistence;
 using FileProcessing.Infrastructure.Persistence.ApplicationUserManagement;
+using FileProcessing.Infrastructure.Persistence.ApplicationUserManagement.Entitiy;
 using FileProcessing.Infrastructure.Persistence.Composition;
 using FileProcessing.WebSolution.ModuleComposition;
 using Microsoft.AspNetCore.Identity;
