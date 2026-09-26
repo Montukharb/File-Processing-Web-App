@@ -1,5 +1,6 @@
 using FileProcessing.Core.CommonLibrary.Exceptions;
 using FileProcessing.Core.CommonLibrary.Extensions;
+using FileProcessing.Infrastructure.Jwt.Composition;
 using FileProcessing.Infrastructure.Persistence;
 using FileProcessing.Infrastructure.Persistence.ApplicationUserManagement;
 using FileProcessing.Infrastructure.Persistence.ApplicationUserManagement.Entitiy;
@@ -29,19 +30,22 @@ builder.Services.AddModuleComposition(builder.Configuration);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp",
-        policy => policy.WithOrigins("http://localhost:4200") // Replace with your Angular app URL
+        policy => policy.WithOrigins("http://localhost:4200") // Replace with Angular app URL
                         .AllowAnyHeader()
-                        .AllowAnyMethod());
+                        .AllowAnyMethod()
+                        .AllowCredentials()
+                        );
 });
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddResponseCompression();
+builder.Services.AuthConfiguration(builder.Configuration);
+
 var app = builder.Build();
 
 //Register the global exception handler middleware
 app.UseMiddleware<GlobalExceptionHandler>();
-//app.UseAuthentication();
-//app.UseAuthorization();
+app.UseHttpsRedirection(); //http request convert into https request
 app.UseRateLimiter(); // Rate Limiter Middleware
 app.MapControllers(); // Map the controllers to the request pipeline
 app.UseDefaultFiles(); //Find and match the default file like index.html etc.
@@ -57,22 +61,21 @@ if (app.Environment.IsDevelopment())
 
 }
 // Configure the HTTP request pipeline.
-app.UseHttpsRedirection(); //http request convert into https request
 app.UseStaticFiles(); //https://localhost:5001/images/photo.jpg
-//app.UseStaticFiles(new StaticFileOptions
-//{
-//    FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "PrivateAssets")),
-//    RequestPath = "/assets" /* requestpath "/assets/image.png" client access */
-//});
+/*app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "PrivateAssets")),
+    RequestPath = "/assets" *//* requestpath "/assets/image.png" client access *//*
+});*/
 
 app.UseCors("AllowAngularApp");
 app.UseResponseCompression(); //response json compress auto
-//app.UseAuthentication();
-//app.UseAuthorization();
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapGet("api/", () =>
 {
     return TypedResults.Ok("working");
-}).RequireRateLimiting("Fixed");
+}).RequireRateLimiting("Multilayer_Fixed");
 app.MapFallback(() => Results.NotFound("The requested resource was not found."));
 Console.WriteLine("Server started");
 app.Run();

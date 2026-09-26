@@ -29,6 +29,9 @@
   <Folder Name="/Infrastructure/Email/">
     <Project Path="Infrastructure/Email/FileProcessing.Infrastructure.Email/FileProcessing.Infrastructure.Email.csproj" />
   </Folder>
+  <Folder Name="/Infrastructure/Jwt/">
+    <Project Path="Infrastructure/Jwt/FileProcessing.Infrastructure.Jwt/FileProcessing.Infrastructure.Jwt.csproj" Id="c5bcebc6-cfed-40a6-acb3-45becf4d8508" />
+  </Folder>
 
   <Folder Name="/Infrastructure/Persistence/">
     <Project Path="Infrastructure/Persistence/FileProcessing.Infrastructure.Persistence/FileProcessing.Infrastructure.Persistence.csproj" Id="5d6b82d3-838c-4a4e-8b56-21d2cba6d102" />

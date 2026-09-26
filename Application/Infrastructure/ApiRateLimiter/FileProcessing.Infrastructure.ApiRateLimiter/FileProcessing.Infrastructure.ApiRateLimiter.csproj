@@ -10,11 +10,4 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="All-Limits\ApiKey_Limit\" />
-    <Folder Include="All-Limits\IP_And_User-Agent_Limit\" />
-    <Folder Include="All-Limits\MultiLayer_Limit\" />
-    <Folder Include="All-Limits\UserID_Limit\" />
-  </ItemGroup>
-
 </Project>

@@ -12,7 +12,9 @@ namespace FileProcessing.WebSolution.Server.Template_Test
     public class TemplateController(ISignUpTemplateService TemplateService, IAppLogoProvider _AppLogoProvider) : ControllerBase
     {
         [HttpGet("testTemplate/")]
-        [EnableRateLimiting("IP_Fixed")]
+        //[EnableRateLimiting("IP_AND_USERAGENT_FIXED")] 
+        //[EnableRateLimiting("Multilayer_Fixed")] 
+        //Global auto apply
         public async Task<IActionResult> GetTemplate([FromBody] UserSignUpModel model)
         {
             byte[] LightLogo = await _AppLogoProvider.GetAppLightLogoAsync();
