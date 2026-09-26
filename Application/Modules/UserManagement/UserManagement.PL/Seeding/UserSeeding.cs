@@ -15,7 +15,7 @@ namespace UserManagement.PL.Seeding
             using var scope = ScopeFactory.CreateScope();
             var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-            string[] roles = { "SuperAdmin", "Admin", "Manager", "Employee", "Customer", "Vendor", "Guest" };
+            string[] roles = { "SuperAdmin", "Admin", "Manager", "Employee", "Customer", "Vendor", "Guest","User" };
 
             foreach (var role in roles)
             {

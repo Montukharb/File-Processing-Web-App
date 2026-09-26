@@ -7,17 +7,18 @@ using System.Threading.RateLimiting;
 
 namespace FileProcessing.Infrastructure.ApiRateLimiter.All_Limits.IP_Limit
 {
-    public static class IP_Address_Rate_Limiter
+    public static class Global_IP_Address_Rate_Limiter
     {
-        public static RateLimiterOptions IpAddressRateLimiterOptions(this RateLimiterOptions options)
+        public static RateLimiterOptions GlobalIpAddressRateLimiterOptions(this RateLimiterOptions options)
         {
-            options.AddPolicy("IP_Fixed", HttpContext =>
+            options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(HttpContext =>
             {
                 var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknownIp";
-                //var userAgent = HttpContext.Request.Headers["User-Agent"].ToString();
+                var endpoint = HttpContext.Request.Path.Value ?? "/";
 
+                var globalBucketKey = $"ip{ip}_endpoint:{endpoint}";
                 return RateLimitPartition.GetSlidingWindowLimiter(
-                    partitionKey: ip,
+                    partitionKey: globalBucketKey,
                     factory: _ => new SlidingWindowRateLimiterOptions
                     {
                         PermitLimit = 20,
@@ -35,9 +36,8 @@ namespace FileProcessing.Infrastructure.ApiRateLimiter.All_Limits.IP_Limit
                 await context.HttpContext.Response.WriteAsJsonAsync(new
                 {
                     statusCode = 429,
-                    message = "Too many requests.",
-                    retryAfter = "2 Minutes",
-                    ipaddress = context.HttpContext.Connection.RemoteIpAddress?.ToString() ?? "Not Found"
+                    message = "Too many requests. g",
+                    retryAfter = "2 Minutes"
                 }, CancellationToken);
             };
 

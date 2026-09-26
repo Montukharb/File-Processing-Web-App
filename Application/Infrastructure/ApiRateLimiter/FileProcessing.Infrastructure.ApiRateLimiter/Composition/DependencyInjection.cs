@@ -1,4 +1,6 @@
-﻿using FileProcessing.Infrastructure.ApiRateLimiter.All_Limits.IP_Limit;
+﻿using FileProcessing.Infrastructure.ApiRateLimiter.All_Limits.IP_And_User_Agent_Limit;
+using FileProcessing.Infrastructure.ApiRateLimiter.All_Limits.IP_Limit;
+using FileProcessing.Infrastructure.ApiRateLimiter.All_Limits.MultiLayer_Limit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -14,8 +16,10 @@ namespace FileProcessing.Infrastructure.ApiRateLimiter.Composition
 
             services.AddRateLimiter(options =>
             {
-                options.IpAddressRateLimiterOptions();
-                
+                options.GlobalIpAddressRateLimiterOptions();
+                options.IpAddressAndUserAgentRateLimiterOptions();
+                options.MultilayerRateLimiterOptions();
+
             });
             return services;
         }
