@@ -56,7 +56,7 @@ namespace FileProcessing.Infrastructure.Jwt.Token_Gen
                 }
             }
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:key"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:key"]!));
 
             var credential = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
 

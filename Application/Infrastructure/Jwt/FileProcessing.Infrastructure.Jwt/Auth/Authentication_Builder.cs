@@ -45,7 +45,7 @@ namespace FileProcessing.Infrastructure.Jwt.Auth
                         return Task.CompletedTask;
                     }
                 };
-            });
+            }));
             return services;
         }
     }
