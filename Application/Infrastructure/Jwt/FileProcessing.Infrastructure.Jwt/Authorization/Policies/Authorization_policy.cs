@@ -11,8 +11,6 @@ namespace FileProcessing.Infrastructure.Jwt.Authorization.Policies
     {
         public static void AuthoriationPolicy(this AuthorizationOptions options)
         {
-            options.AddPolicy("User", policy => policy.RequireAuthenticatedUser());
-
             //General Policy
             options.AddPolicy("policyName", policy =>
             {
