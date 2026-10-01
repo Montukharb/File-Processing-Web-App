@@ -17,8 +17,7 @@ namespace FileProcessing.Infrastructure.Jwt.CookieSetting
                 Secure = Env.IsDevelopment() ? false : true, // https required
                 SameSite = Env.IsDevelopment() ? SameSiteMode.None : SameSiteMode.Lax, //csrf attack protection 
                 Expires = DateTime.UtcNow.AddDays(7),
-                Path = Env.IsDevelopment() ? string.Empty : "/api/auth/refresh-token",
-                Domain = Env.IsDevelopment() ? string.Empty : ".yourcompany.com"
+                Path = "/api/v1/auth/refresh-token"
             };
 
             //Response.Cookies.Append("refreshToken", refreshTokenValue, cookieOptions);

@@ -20,6 +20,8 @@ public static class UserAuthenticationEndpoints
         authentication.MapPost("/login", LoginHandler.HandleAsync).RequireRateLimiting("IP_AND_USERAGENT_FIXED");
         authentication.MapPost("/log-in", LoginHandler.HandleAsync).RequireRateLimiting("IP_AND_USERAGENT_FIXED");
         authentication.MapPost("/logout", LogoutHandler.HandleAsync).RequireAuthorization().RequireRateLimiting("Multilayer_Fixed");
+        authentication.MapPost("/refresh-token", RefreshTokenHandler.HandleAsync).AllowAnonymous().RequireRateLimiting("IP_AND_USERAGENT_FIXED");
+        authentication.MapPost("/sessions/terminate-others", TerminateOtherSessionsHandler.HandleAsync).RequireAuthorization().RequireRateLimiting("Multilayer_Fixed");
 
         return endpoints;
     }

@@ -8,7 +8,7 @@ namespace FileProcessing.Infrastructure.Jwt.Token_Gen
 {
     public interface ITokens
     {
-        public Task<string> AccessToken<TUser>(TUser user) where TUser : ApplicationUser;
+        public Task<string> AccessToken<TUser>(TUser user, string sessionId) where TUser : ApplicationUser;
         public Task<T> RefreshToken<T>() where T : IRefreshTokenDto, new();
     }
 }

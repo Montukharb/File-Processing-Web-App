@@ -25,14 +25,15 @@ namespace FileProcessing.Infrastructure.Jwt.Token_Gen
         }
 
         [NonAction]
-        public async Task<string> AccessToken<TUser>(TUser user) where TUser : ApplicationUser
+        public async Task<string> AccessToken<TUser>(TUser user, string sessionId) where TUser : ApplicationUser
         {
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.UserName!),
                 new Claim(ClaimTypes.Email, user.Email!),
-                new Claim(ClaimTypes.Role,"User")
+                new Claim(ClaimTypes.Role,"User"),
+                new Claim(ClaimTypes.Sid, sessionId)
             };
 
             //Add All Roles
