@@ -32,20 +32,20 @@ namespace FileProcessing.Infrastructure.Jwt.Token_Gen
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.UserName!),
                 new Claim(ClaimTypes.Email, user.Email!),
+                new Claim(ClaimTypes.Role,"User")
             };
 
-            //All Roles set
+            //Add All Roles
             var roles = await _userManager.GetRolesAsync(user);
             foreach (var role in roles)
             {
                 new Claim(ClaimTypes.Role, role);
             }
 
-            //direct user claims set
             var userClaims = await _userManager.GetClaimsAsync(user);
             claims.AddRange(userClaims);
 
-            //role claims set
+            //role claims
             foreach (var roleName in roles)
             {
                 var Roleclaims = await _roleManager.FindByNameAsync(roleName);
@@ -56,7 +56,7 @@ namespace FileProcessing.Infrastructure.Jwt.Token_Gen
                 }
             }
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:key"]!));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:key"]));
 
             var credential = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
 

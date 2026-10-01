@@ -1,4 +1,4 @@
-﻿using FileProcessing.Infrastructure.Jwt.Auth;
+using FileProcessing.Infrastructure.Jwt.Auth;
 using FileProcessing.Infrastructure.Jwt.Authorization.Policies;
 using FileProcessing.Infrastructure.Jwt.CookieSetting;
 using FileProcessing.Infrastructure.Jwt.Token_Gen;
