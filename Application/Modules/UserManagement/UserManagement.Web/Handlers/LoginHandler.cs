@@ -1,6 +1,7 @@
 using FileProcessing.Infrastructure.Jwt.CookieSetting;
 using FileProcessing.Infrastructure.Jwt.Dto;
 using FileProcessing.Infrastructure.Jwt.Token_Gen;
+using FileProcessing.Infrastructure.Persistence;
 using FileProcessing.Infrastructure.Persistence.ApplicationUserManagement.Entitiy;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
@@ -18,6 +19,7 @@ public static class LoginHandler
         UserManager<ApplicationUser> userManager,
         ITokens tokens,
         ICookieConfiguration cookieConfiguration,
+        AppDbContext dbContext,
         HttpContext httpContext,
         CancellationToken cancellationToken)
     {
@@ -45,8 +47,27 @@ public static class LoginHandler
 
         await userManager.ResetAccessFailedCountAsync(user);
 
-        var accessToken = await tokens.AccessToken(user);
-        var refreshToken = await tokens.RefreshToken<LoginRefreshTokenDto>();
+        var refreshToken = await tokens.RefreshToken<RefreshTokenDto>();
+        var userAgent = httpContext.Request.Headers["User-Agent"].ToString();
+        var deviceType = GetDeviceType(userAgent);
+        var deviceName = httpContext.Request.Headers["X-Device-Name"].ToString().Trim();
+        var session = new UserSession
+        {
+            UserId = user.Id,
+            SessionId = Guid.NewGuid().ToString("N"),
+            DeviceName = string.IsNullOrWhiteSpace(deviceName) ? deviceType : deviceName,
+            DeviceType = deviceType,
+            IpAddress = httpContext.Connection.RemoteIpAddress?.ToString(),
+            UserAgent = userAgent,
+            RefreshTokenHash = RefreshTokenHash.Compute(refreshToken.RFToken),
+            CreatedAt = refreshToken.RFCreatedToken,
+            LastUsedAt = refreshToken.RFCreatedToken,
+            ExpiresAt = refreshToken.RFExpireToken
+        };
+        dbContext.Set<UserSession>().Add(session);
+        await dbContext.SaveChangesAsync(cancellationToken);
+
+        var accessToken = await tokens.AccessToken(user, session.SessionId);
 
         httpContext.Response.Cookies.Append(
             "accessToken",
@@ -79,10 +100,23 @@ public static class LoginHandler
             statusCode: StatusCodes.Status401Unauthorized);
     }
 
-    private sealed class LoginRefreshTokenDto : IRefreshTokenDto
+    private static string GetDeviceType(string userAgent)
     {
-        public string RFToken { get; set; } = string.Empty;
-        public DateTime RFCreatedToken { get; set; }
-        public DateTime RFExpireToken { get; set; }
+        if (string.IsNullOrWhiteSpace(userAgent))
+        {
+            return "Unknown";
+        }
+
+        if (userAgent.Contains("ipad", StringComparison.OrdinalIgnoreCase) ||
+            userAgent.Contains("tablet", StringComparison.OrdinalIgnoreCase))
+        {
+            return "Tablet";
+        }
+
+        return userAgent.Contains("mobile", StringComparison.OrdinalIgnoreCase) ||
+               userAgent.Contains("iphone", StringComparison.OrdinalIgnoreCase)
+            ? "Mobile"
+            : "Desktop";
     }
+
 }

@@ -12,8 +12,8 @@ namespace FileProcessing.Infrastructure.Jwt.Dto
     }
     public class RefreshTokenDto : IRefreshTokenDto
     {
-        public required string RFToken { get; set; }
-        public required DateTime RFCreatedToken { get; set; }
-        public required DateTime RFExpireToken { get; set; }
+        public string RFToken { get; set; } = string.Empty;
+        public DateTime RFCreatedToken { get; set; }
+        public DateTime RFExpireToken { get; set; }
     }
 }
