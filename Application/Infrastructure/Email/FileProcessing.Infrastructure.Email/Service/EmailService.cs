@@ -25,22 +25,20 @@ namespace FileProcessing.Core.Email.Service
         {
             var message = new MimeMessage();
 
-            message.From.Add(new MailboxAddress(
+            message.From.Add(CreateMailboxAddress(
                 _emailSettings.DisplayName,
-                _emailSettings.Email
+                _emailSettings.Email,
+                "EmailSettings:Email"
                 ));
 
-            message.To.Add(new MailboxAddress(
+            message.To.Add(CreateMailboxAddress(
                 model.UserName,
-                model.To
+                model.To,
+                "email model recipient (To)"
                 ));
 
             message.Subject = model.Subject;
-            var bodyBuilder = new BodyBuilder()
-            {
-                TextBody = model.TextBody,
-                HtmlBody = await _signUpTemplateService.RenderSignUpTemplateAsync(model)
-            };
+            var bodyBuilder = await EmailMessageBodyBuilder.CreateAsync(model, _signUpTemplateService);
             message.Body = bodyBuilder.ToMessageBody();
 
             using var smptClient = new SmtpClient();
@@ -59,6 +57,32 @@ namespace FileProcessing.Core.Email.Service
             await smptClient.SendAsync(message);
 
             await smptClient.DisconnectAsync(true);
+        }
+
+        private static MailboxAddress CreateMailboxAddress(string? displayName, string? address, string settingName)
+        {
+            if (string.IsNullOrWhiteSpace(address))
+            {
+                throw new InvalidOperationException($"{settingName} is required and must be a valid email address.");
+            }
+
+            var normalizedAddress = address.Trim();
+            if (!System.Net.Mail.MailAddress.TryCreate(normalizedAddress, out var parsedAddress) ||
+                !string.Equals(parsedAddress.Address, normalizedAddress, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new InvalidOperationException($"{settingName} must be a valid email address.");
+            }
+
+            try
+            {
+                return new MailboxAddress(displayName ?? string.Empty, normalizedAddress);
+            }
+            catch (ParseException exception)
+            {
+                throw new InvalidOperationException(
+                    $"{settingName} must be a valid email address. Check the configured sender and recipient values.",
+                    exception);
+            }
         }
     }
 }

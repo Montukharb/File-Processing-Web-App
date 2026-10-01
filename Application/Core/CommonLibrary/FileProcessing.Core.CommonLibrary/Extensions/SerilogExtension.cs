@@ -20,13 +20,16 @@ namespace FileProcessing.Core.CommonLibrary.Extensions
 
             host.UseSerilog((context, config) =>
             {
-                if (context.HostingEnvironment.IsDevelopment())
+                if (context.HostingEnvironment.IsDevelopment() || context.HostingEnvironment.IsEnvironment("Testing"))
                 {
                     config.WriteTo.Console();
-                    config.WriteTo.File("Logs/log.txt",
-                        shared: false,
-                        rollingInterval: RollingInterval.Day,
-                        retainedFileCountLimit: 50);
+                    if (context.HostingEnvironment.IsDevelopment())
+                    {
+                        config.WriteTo.File("Logs/log.txt",
+                            shared: false,
+                            rollingInterval: RollingInterval.Day,
+                            retainedFileCountLimit: 50);
+                    }
                 }
                 else
                 {

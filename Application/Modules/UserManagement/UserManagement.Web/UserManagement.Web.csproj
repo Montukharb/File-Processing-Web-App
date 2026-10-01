@@ -1,9 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
+	  <OutputType>Library</OutputType>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrastructure\Jwt\FileProcessing.Infrastructure.Jwt\FileProcessing.Infrastructure.Jwt.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\Persistence\FileProcessing.Infrastructure.Persistence\FileProcessing.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\TaskQueue\FileProcessing.Infrastructure.TaskQueue\FileProcessing.Infrastructure.TaskQueue.csproj" />
+    <ProjectReference Include="..\UserManagement.AM\UserManagement.AM.csproj" />
+  </ItemGroup>
 
 </Project>

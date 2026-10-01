@@ -24,6 +24,7 @@
     <ProjectReference Include="..\..\..\Infrastructure\Jwt\FileProcessing.Infrastructure.Jwt\FileProcessing.Infrastructure.Jwt.csproj" />
     <ProjectReference Include="..\..\..\Infrastructure\Persistence\FileProcessing.Infrastructure.Persistence\FileProcessing.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\..\..\Modules\UserManagement\UserManagement.DM\UserManagement.DM.csproj" />
+    <ProjectReference Include="..\..\..\Modules\UserManagement\UserManagement.Web\UserManagement.Web.csproj" />
     <ProjectReference Include="..\FileProcessing.WebSolution.ModuleComposition\FileProcessing.WebSolution.ModuleComposition.csproj" />
   </ItemGroup>
 

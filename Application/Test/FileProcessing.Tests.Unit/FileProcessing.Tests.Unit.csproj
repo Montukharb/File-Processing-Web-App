@@ -18,4 +18,10 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Email\FileProcessing.Infrastructure.Email\FileProcessing.Infrastructure.Email.csproj" />
+    <ProjectReference Include="..\..\Modules\UserManagement\UserManagement.AM\UserManagement.AM.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\TaskQueue\FileProcessing.Infrastructure.TaskQueue\FileProcessing.Infrastructure.TaskQueue.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -7,6 +7,7 @@ using FileProcessing.Infrastructure.Persistence.ApplicationUserManagement.Entiti
 using FileProcessing.Infrastructure.Persistence.Composition;
 using FileProcessing.WebSolution.ModuleComposition;
 using Microsoft.AspNetCore.Identity;
+using UserManagement.Web;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -45,12 +46,7 @@ var app = builder.Build();
 
 //Register the global exception handler middleware
 app.UseMiddleware<GlobalExceptionHandler>();
-app.UseHttpsRedirection(); //http request convert into https request
-app.UseRateLimiter(); // Rate Limiter Middleware
-app.MapControllers(); // Map the controllers to the request pipeline
-app.UseDefaultFiles(); //Find and match the default file like index.html etc.
-app.MapStaticAssets(); // Map the static assets folder to the request path "/assets"
-app.UseStatusCodePages(); // Handle status code pages for 404, 500, etc.
+app.ModulesWebDI();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -72,12 +68,7 @@ app.UseCors("AllowAngularApp");
 app.UseResponseCompression(); //response json compress auto
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapGet("api/", () =>
-{
-    return TypedResults.Ok("working");
-}).RequireRateLimiting("Multilayer_Fixed");
 app.MapFallback(() => Results.NotFound("The requested resource was not found."));
-Console.WriteLine("Server started");
 app.Run();
 static string GetConnectionString(WebApplicationBuilder builder)
 {
@@ -89,3 +80,5 @@ static string GetConnectionString(WebApplicationBuilder builder)
     }
     throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 }
+
+public partial class Program;

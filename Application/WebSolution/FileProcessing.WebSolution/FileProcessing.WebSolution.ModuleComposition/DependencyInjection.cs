@@ -20,14 +20,15 @@ namespace FileProcessing.WebSolution.ModuleComposition
                       services,
                      configuration.GetSection("EmailSettings"));*/
             //builder.Services.Configure<EmailSetting>(builder.Configuration.GetSection("EmailSettings"));
-            services.UserManagementDependencyInjection();
-            services.AddTransient<GlobalExceptionHandler>();
-            services.Configure<EmailSetting>(configuration.GetSection("EmailSettings"));
-            services.EmailVerifyConfiguration();
-            services.BackgroundServicesConfiguration();
-            services.RateLimitingConfigure();
-            services.CacheConfiguration(configuration);
-            services.EmailConfiguration(); //Email Di Register
+            services.UserManagementDependencyInjection().AddTransient<GlobalExceptionHandler>()
+            .Configure<EmailSetting>(configuration.GetSection("EmailSettings"))
+            .Configure<EmailUrls>(configuration.GetSection("EmailUrls"))
+            .EmailVerifyConfiguration()
+            .BackgroundServicesConfiguration()
+            .RateLimitingConfigure()
+            .CacheConfiguration(configuration)
+            .EmailConfiguration() //Email Di Register
+            .GlobalValidatorAssemblyConfiguration();
             return services;
         }
     }
