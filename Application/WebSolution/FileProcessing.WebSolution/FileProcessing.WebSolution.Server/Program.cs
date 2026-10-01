@@ -44,14 +44,9 @@ builder.Services.AuthConfiguration(builder.Configuration);
 
 var app = builder.Build();
 
-//Register the global exception handler middleware
+//Register the global exception handler middlewar
 app.UseMiddleware<GlobalExceptionHandler>();
-app.UseHttpsRedirection(); //http request convert into https request
-app.UseRateLimiter(); // Rate Limiter Middleware
-app.MapControllers(); // Map the controllers to the request pipeline
-app.UseDefaultFiles(); //Find and match the default file like index.html etc.
-app.MapStaticAssets(); // Map the static assets folder to the request path "/assets"
-app.UseStatusCodePages(); // Handle status code pages for 404, 500, etc.
+app.ModulesWebDI();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -73,10 +68,6 @@ app.UseCors("AllowAngularApp");
 app.UseResponseCompression(); //response json compress auto
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapGet("api/", () =>
-{
-    return TypedResults.Ok("working");
-}).RequireRateLimiting("Multilayer_Fixed");
 app.MapFallback(() => Results.NotFound("The requested resource was not found."));
 app.Run();
 static string GetConnectionString(WebApplicationBuilder builder)
