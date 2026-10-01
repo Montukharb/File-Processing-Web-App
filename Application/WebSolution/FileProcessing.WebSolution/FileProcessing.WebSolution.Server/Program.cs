@@ -44,7 +44,7 @@ builder.Services.AuthConfiguration(builder.Configuration);
 
 var app = builder.Build();
 
-//Register the global exception handler middleware
+//Register the global exception handler middlewar
 app.UseMiddleware<GlobalExceptionHandler>();
 app.ModulesWebDI();
 if (app.Environment.IsDevelopment())
