@@ -21,7 +21,9 @@
     <ProjectReference Include="..\..\..\Infrastructure\Cache\FileProcessing.Infrastructure.Cache\FileProcessing.Infrastructure.Cache.csproj" />
     <ProjectReference Include="..\..\..\Infrastructure\Email\FileProcessing.Infrastructure.Email\FileProcessing.Infrastructure.Email.csproj" />
     <ProjectReference Include="..\..\..\Infrastructure\TaskQueue\FileProcessing.Infrastructure.TaskQueue\FileProcessing.Infrastructure.TaskQueue.csproj" />
+    <ProjectReference Include="..\..\..\Modules\UserManagement\UserManagement.AM\UserManagement.AM.csproj" />
     <ProjectReference Include="..\..\..\Modules\UserManagement\UserManagement.PL\UserManagement.PL.csproj" />
+    <ProjectReference Include="..\..\..\Modules\UserManagement\UserManagement.Web\UserManagement.Web.csproj" />
    
   </ItemGroup>
 

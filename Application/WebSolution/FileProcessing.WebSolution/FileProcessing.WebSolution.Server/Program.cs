@@ -7,6 +7,7 @@ using FileProcessing.Infrastructure.Persistence.ApplicationUserManagement.Entiti
 using FileProcessing.Infrastructure.Persistence.Composition;
 using FileProcessing.WebSolution.ModuleComposition;
 using Microsoft.AspNetCore.Identity;
+using UserManagement.Web;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -77,7 +78,6 @@ app.MapGet("api/", () =>
     return TypedResults.Ok("working");
 }).RequireRateLimiting("Multilayer_Fixed");
 app.MapFallback(() => Results.NotFound("The requested resource was not found."));
-Console.WriteLine("Server started");
 app.Run();
 static string GetConnectionString(WebApplicationBuilder builder)
 {
@@ -89,3 +89,5 @@ static string GetConnectionString(WebApplicationBuilder builder)
     }
     throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 }
+
+public partial class Program;

@@ -20,7 +20,7 @@ public class VerifyEmailBackground(IServiceScopeFactory scopeFactory, IEmailVeri
                 var emailService = scope.ServiceProvider.GetRequiredService<IEmailService>();
 
                 await emailService.SendEmailAsync(emailModel);
-
+                   
                 logger.LogInformation("Verification email processed.");
             }
             catch (OperationCanceledException) when (stoppingToken.IsCancellationRequested)

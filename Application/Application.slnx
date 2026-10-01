@@ -65,6 +65,7 @@
 
   <Folder Name="/Test/">
     <Project Path="Test/FileProcessing.Tests.Unit/FileProcessing.Tests.Unit.csproj" />
+    <Project Path="Test/FileProcessing.Tests.Integration/FileProcessing.Tests.Integration.csproj" />
   </Folder>
 
 

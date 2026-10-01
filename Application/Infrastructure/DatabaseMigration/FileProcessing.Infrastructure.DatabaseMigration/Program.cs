@@ -138,10 +138,7 @@ internal sealed class Operation
         await serviceProvider.SeedAppDbContextAsync();
     }
 
-
 }
-
-
 
 
 internal sealed class MigrationCommandLine
